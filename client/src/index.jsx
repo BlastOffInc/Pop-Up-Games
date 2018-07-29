@@ -18,7 +18,7 @@ class App extends React.Component {
       loggedIn: false,
       signupStep: false,
       loginStep: false,
-      target: false,
+      target: {},
     };
   }
   /**
@@ -39,8 +39,10 @@ class App extends React.Component {
     this.setState({loginStep: state})
   }
 
-  changeTarget(target){
-    this.setState({target: target})
+  changeTarget(target) {
+    let oldTarget = this.state.target
+    oldTarget[target.type] = target.id;
+    this.setState({target: oldTarget})
   }
 
 
